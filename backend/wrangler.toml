@@ -1,0 +1,39 @@
+name = "sigil-backend"
+main = "src/index.ts"
+compatibility_date = "2024-01-17"
+account_id = "223c1fb9fa0610a2bcb05e5e08144c4e"
+
+[vars]
+ENVIRONMENT = "development"
+CORS_ORIGINS = "http://localhost:5173,http://localhost:3000,https://sigined.com"
+STORAGE_PROVIDER = "supabase"
+APP_URL="https://sigined.com"
+
+# Supabase 
+SUPABASE_URL="https://piewqymbfxnpfgqfpfem.supabase.co"
+SUPABASE_STORAGE_URL="https://piewqymbfxnpfgqfpfem.supabase.co/storage/v1"
+SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBpZXdxeW1iZnhucGZncWZwZmVtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2NjcxMzAsImV4cCI6MjA5NDI0MzEzMH0.P2bWNURP5CJyKPk_G6uI1q1c8yWXepUsziqxyPVmC7M"
+SUPABASE_BUCKET_DOCUMENTS="documents"
+SUPABASE_BUCKET_SIGNATURES="signatures"
+SUPABASE_BUCKET_CERTIFICATES="certificates"
+SUPABASE_BUCKET_AVATARS="avatars"
+
+# Resend (Email Service)
+FROM_EMAIL="noreply@sigined.com"
+
+# Signing Engine Configuration
+TSA_URL="https://freetsa.org/tsr"
+
+# Stripe Billing
+STRIPE_SECRET_KEY="sk_test_placeholder"
+STRIPE_WEBHOOK_SECRET="whsec_placeholder"
+STRIPE_PRICE_BASIC_USD="price_placeholder"
+STRIPE_PRICE_PRO_USD="price_placeholder"
+STRIPE_PRICE_ENTERPRISE_USD="price_placeholder"
+STRIPE_CUSTOMER_PORTAL="https://billing.stripe.com/p/login/placeholder"
+
+ 
+
+[env.production]
+vars = { ENVIRONMENT = "production", CORS_ORIGINS = "", STORAGE_PROVIDER = "r2", TSA_URL = "https://freetsa.org/tsr", CRON_SECRET = "<set-in-dashboard>", R2_BUCKET_DOCUMENTS = "sigined-documents", R2_BUCKET_SIGNATURES = "sigined-signatures", R2_BUCKET_CERTIFICATES = "sigined-certificates", R2_BUCKET_AVATARS = "sigined-avatars" }
+# Cron removed - use external service with CRON_SECRET to trigger email-worker

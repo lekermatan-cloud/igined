@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes toast-shrink {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+@layer base {
+  body {
+    background: radial-gradient(ellipse at top, #0f1422 0%, #070a13 60%, #050810 100%);
+    min-height: 100vh;
+    color: #e8e3d6;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Fix autofill background covering icons (Chrome/Safari) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px rgba(7, 10, 19, 0.95) inset !important;
+  -webkit-text-fill-color: #e8e3d6 !important;
+  caret-color: #e8e3d6;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Fix autofill background covering icons (Firefox) */
+input:-moz-autofill,
+input:autofill {
+  background-color: rgba(7, 10, 19, 0.95) !important;
+  background-image: none !important;
+  color: #e8e3d6 !important;
+  -moz-text-fill-color: #e8e3d6;
+}
+
+/* Hide number input arrows */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
